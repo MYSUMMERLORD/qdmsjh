@@ -94,3 +94,34 @@
 		}
 		var arr = [1,2,3,4,5];
 		console.log(arr.removeOutlier());
+4. 给定一个数组实现字符串反转，要求原地实现。
+		
+		//Array本来就有reverse方法，所以这里是让自己实现内置的reverse方法
+		function reverse(arr){
+		    var temp;
+		    for(var i = 0; i < arr.length / 2; i ++){
+		    	console.log(i);
+		    	temp = arr[i];
+		    	arr[i] = arr[arr.length - i - 1];
+		    	arr[arr.length - i - 1] = temp;
+		    }
+		    return arr;
+		}
+		console.log(5/2); // 2.5
+		console.log(reverse([1,2,3,4,5])); // [ 5, 4, 3, 2, 1 ]
+5. 如何判断一个JavaScript对象是数组
+
+		var arr = [1,2,3,4,5];
+		//1#
+		if(Object.prototype.toString.call(arr) == '[object Array]'){
+		    console.log("a 是数组");
+		}else{
+		    console.log("a 不是数组");
+		}
+		//2#
+		if(arr.constructor == Array){
+		    console.log("a 是数组");
+		}else{
+		    console.log("a 不是数组");
+		}
+		console.log(arr.constructor); // function Array()
