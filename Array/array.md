@@ -1,5 +1,6 @@
 ## 数组相关的题目 ##
 1. 编写函数，用于过滤一个数组内重复的元素，并用这些元素重构一个新数组，新数组内也不能有重复元素。
+
 		function Unique(arr){
 			var newArr = [];
 			for(var i = 0;i < arr.length; i++){
@@ -14,4 +15,68 @@
 				console.log(newArr); //[ 1, 2, 3, 4, 5 ]
 		}
 		Unique([1,2,3,4,5,2,1]);
-2. 
+2. 编写一个javascript函数fn，该函数有一个参数n（数字类型），其返回值是一个数组，该数组内是n个随机且不重复的整数，且整数取值范围是[2,32].
+
+	** 写代码的原则：可用、健壮、可靠（例如出现异常，该怎么做，可以输入[]等）、宽容、精益求精 **
+
+		function getRand(min,max){
+			var range = max - min;
+			var random = Math.random();
+			return min + Math.round(range * random);
+		}
+		
+		function checkInArr(arr,val){
+			if(arr.indexOf(val) !== -1){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		function isThere(n){
+			if(n == null || n == undefined){
+				return false;
+			}else{
+				return true;
+			}
+		}
+		function typeOk(n){
+			if(isNaN(Number(n)) || typeof(n) == 'string' && n.trim().length == 0){
+				return false;
+			}else{
+				return true;
+			}
+		}
+		function initialN(n){
+			return Math.round(Number(n));
+		}
+		function rangeOk(n,min,max){
+			if(n< min || n > max){
+				return false;
+			}else{
+				return true;
+			}
+		}
+		function getRandomN(n){
+			//健壮性校验
+			if(!isThere(n)) return [];
+			if(!typeOk(n)) return [];
+				//对数字进行归一化
+			n = initialN(n);
+			if(!rangeOk(n,2,32)) return [];
+			//准备一个容器保存结果
+			var arr = [];
+			//循环
+			for(var i = 0; i < n ; i++){
+				//创建一个随机数
+				var rnd = getRand(2,32);
+				//检查是否重复
+				if(checkInArr(arr,rnd)){
+					i--;
+				}else{
+					arr.push(rnd);
+				}
+			}
+			return arr;
+		}
+		console.log(getRandomN(4.653232323));
+3. 
