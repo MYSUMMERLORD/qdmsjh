@@ -124,4 +124,10 @@
 		}else{
 		    console.log("a 不是数组");
 		}
+		//3#
+		if(arr instanceof Array){
+		    console.log("a 是数组");
+		}else{
+		    console.log("a 不是数组");
+		}
 		console.log(arr.constructor); // function Array()
