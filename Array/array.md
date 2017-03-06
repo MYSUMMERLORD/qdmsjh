@@ -79,4 +79,18 @@
 			return arr;
 		}
 		console.log(getRandomN(4.653232323));
-3. 
+3. 先有一个数组（元素为数字，并且有可能重复），请给Array.prototype增加一个方法（方法名自取），该方法能去掉数组中全部最小和最大的数字。
+
+		Array.prototype.removeOutlier = function(){
+		    var max = Math.max.apply(null,this);
+		    var min = Math.min.apply(null,this);
+		    for(var i = 0 ; i< this.length; i++){
+		        if(this[i] == min || this[i] == max){
+		        	this.splice(i,1);
+		        	i--;
+		    	}
+		    }
+		  	return this;
+		}
+		var arr = [1,2,3,4,5];
+		console.log(arr.removeOutlier());
