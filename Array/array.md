@@ -131,3 +131,57 @@
 		    console.log("a 不是数组");
 		}
 		console.log(arr.constructor); // function Array()
+6. 请写一个函数，功能是删除数组的指定下标元素。（输入可以是多个下表构成的字符串（删除单个元素相对简单））
+
+		Array.prototype.Unique = function(){
+		    var arr = this;
+		    var newArr = [];
+		    for(var i = 0;i < arr.length; i++){
+		        if(newArr.join(",").indexOf(arr[i]) == -1){
+		          newArr.push(+arr[i]); //+：把后面的字符串转化为数字
+		        }
+		    }
+		    return newArr;
+		}
+		Array.prototype.Delete = function(index){
+		  	//假设传过来的是一个字符串，该字符串中包含若干个数组下标，用逗号分隔
+		  	//判断是否为空
+		  	if(index == null || index == undefined) return []; //isNaN([1,2,3]) 竟然输出true
+		  	var arr = index.split(",");
+		  	arr = arr.Unique();
+		  	//对下标集合按递增排序，方便后面按顺序删除指定元素
+		  	arr.sort(function(a,b){return a-b;});
+		  	//判断所指定的下标集合里面是否有不在length范围内的，如果超出范围内，则直接返回空，或给出提示
+		  	if(Math.min.apply(null,arr) < 1 || Math.max.apply(null,arr) > this.length) return [];
+		  	for(var i = j = arr[0]-1,n=0;i<this.length-arr.length;i++){ //i和j是原数组的下标索引（i：被替换的位置，j：要替换的位置），n是指下标集合数组的索引
+    			while(j == arr[n] - 1){    ////上面这句话好绕口
+		        	n++;
+		        	j++;
+		    	}
+		    	this[i] = this[j];
+		    	j++;
+		  	}
+		  	this.length -= arr.length;
+		  	return this;
+		}
+		var arr = [1,2,3,4,5,6,7];
+		var input = "6,1,2,3,4,11";
+		console.log(arr.Delete(input));
+7. 请写一个函数removeVoid(arr)，删除该数组中值为"null, undefined"的项，返回原数组。
+
+		function removeVoid(arr){
+		  for(var i = 0;i < arr.length;i++){
+		    if(arr[i] == null || arr[i] == undefined){
+		      arr.splice(i,1);
+		      i--;
+		    }
+		  }
+		  return arr;
+		}
+		var arr = [1,2,,3,4,null,4,3,undefined,,]; //javascript识别中间的空,,数组末尾的空自动舍去
+		
+		console.log(arr.length);  // 10
+		console.log(arr[2] == true);  // false
+		console.log(typeof arr[2]);  //undefined
+		console.log(arr[3]);  //3
+		console.log(removeVoid(arr)); //[ 1, 2, 3, 4, 4, 3 ]
