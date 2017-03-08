@@ -16,7 +16,9 @@
 #3. 数据类型null#
 
 javascript的`基础数据类型`4种：数值（整数和实数）、字符串型（用“”或‘’括起来的都行）、布尔型（true或false）、和空值，基础类型中的数据可以是变量也可以是常量。
+
 ----
 **原始数据类型**：Undefined、Null、Boolean、Number、String
+
 **复合数据类型**：function函数类型、array数组类型，两个复合类型数据都是Object对象类型。
 
