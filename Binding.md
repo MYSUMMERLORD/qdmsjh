@@ -2,11 +2,11 @@
 
 （一）、写一个通用的事件侦听器。
 
-<p id='f_p' name='drunk'>come<span>xixixi</span>on</p>
-<button id = "bind" onclick="alert('summer 点击了绑定事件捕获');alert(bind);bind(document.getElementsByTagName('p')[0],'click',myClick,true)">p标签绑定事件捕获</button>
-<button id = "bind" onclick="alert('summer 点击了绑定事件冒泡');alert(bind);bind(document.getElementsByTagName('p')[0],'click',myClick,false)">p标签绑定事件冒泡</button>
-<!--<button id = "unbind" onclick="unbind(document.getElementsByTagName('p')[0],'click')">p标签解绑事件</button>-->
-<button id = "unbind" onclick="document.getElementsByTagName('p')[0].removeEventListener('click',myClick,true)">p标签解绑事件</button>
+	<p id='f_p' name='drunk'>come<span>xixixi</span>on</p>
+	<button id = "bind" onclick="alert('summer 点击了绑定事件捕获');bind(document.getElementsByTagName('p')[0],'click',myClick,true)">p标签绑定事件捕获</button>
+	<button id = "bind" onclick="alert('summer 点击了绑定事件冒泡');bind(document.getElementsByTagName('p')[0],'click',myClick,false)">p标签绑定事件冒泡</button>
+	<!--<button id = "unbind" onclick="unbind(document.getElementsByTagName('p')[0],'click')">p标签解绑事件</button>-->
+	<button id = "unbind" onclick="document.getElementsByTagName('p')[0].removeEventListener('click',myClick,true)">p标签解绑事件</button>
 
 
 	<script type="text/javascript">
