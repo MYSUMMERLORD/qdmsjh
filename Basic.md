@@ -124,3 +124,41 @@
 	(6) 混合方法（构造函数+原型方法）
 
 	`该方法是将私有属性通过构造函数构造，共享方法通过原型方式构造。例子有很多，这里就不列举了。`
+4. 如何限制多行文本框内容长度在10以内：
+	
+	（1）方法一：DOM中直接绑定
+		
+		<textarea name = "txt1" cols = "45" rows="2" onkeydown="LimitLength(event)"></textarea>
+		//在调用LimitLength的时候，必须传入event，传入e都不行，想不通
+		//如果不传入任何参数，直接在方法的第一句，通过arguments获取第一个参数也不行，此时arguments的长度为0
+		<script type="text/javascript">
+			function LimitLength(e){
+				var el = e.target;
+				var txt = el.value;
+				if(e.which == 8){
+					//该判断条件是为了使得在内容长度大于10的情况下，用户击下Backspace键时，能正常删除内容
+				}else if(txt.length >= 10){
+					e.preventDefault();
+				}
+			}
+		</script>
+	`经测试，在onkeydown里面写匿名立即执行的函数不行，无法获取到event`
+
+	(2) 方法二：传统的事件绑定
+	
+		var txtarea = document.getElementsByTagName('textarea')[0];
+			txtarea.onkeydown = function(e){
+				if(e.which == 8){}
+				else if(this.value.length >= 10){
+					e.preventDefault();
+				}
+			}
+
+	(3)方法三：绑定事件监听函数
+
+		txtarea.addEventListener("keydown",function(e){
+			if(e.which == 8){}
+			else if(this.value.length >= 10){
+				e.preventDefault();
+			}
+		});
