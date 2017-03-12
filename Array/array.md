@@ -185,3 +185,15 @@
 		console.log(typeof arr[2]);  //undefined
 		console.log(arr[3]);  //3
 		console.log(removeVoid(arr)); //[ 1, 2, 3, 4, 4, 3 ]
+8. 对称数：一个数字倒着读时和原数字相同，我们将这个数字称之为对称数，例如（1，212，88，989）,在不考虑性能的情况下，请找出1~10000之间的对称数，要求用javascript实现。
+
+		function findSymmetryNumber(start,end){
+			for (var i = end; i >= start; i--) {
+				var reverseNum = parseInt(i.toString().split("").reverse().join(""));
+				if(reverseNum == i){
+					console.log(reverseNum);
+				}
+			}
+		}
+		findSymmetryNumber(1,10000);
+
