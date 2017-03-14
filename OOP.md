@@ -29,4 +29,4 @@
 		  console.log("我是f1原型的method方法");
 		}	
 
-输出f1.prototype ：Object { a2: 3, b2: 4 }，也就是说把f1原来prototype属性里的methodf1给覆盖掉了
+输出f1.prototype ：Object { a2: 3, b2: 4 }，也就是说把f1原来prototype属性里的methodf1给覆盖掉了，从而证实了上述第一条是正确的。
