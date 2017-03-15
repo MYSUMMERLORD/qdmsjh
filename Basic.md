@@ -163,8 +163,5 @@
 			}
 		});
 
-5. Regular expression 
+
 	
-	学习视频[http://www.imooc.com/video/12538](http://www.imooc.com/video/12538 "imooc")
-	
-	test RegExper的网址：[https://regexper.com/](https://regexper.com/ "regexper")
