@@ -48,6 +48,14 @@
 
 	`中文`：/^[\u4e00-\u9fa5]+$/  这里的中文包括中文、英文字符、数字、某些符号`_=?[]\^%@``
 
+5. 使用JavaScript讲字符串中由空格隔开的每个单词首字母大写。
+
+		str.replace(/\b\w+\b/g,function(word){
+		    return word.charAt(0).toUpperCase()+word.substring(1);
+		})
+
+	`replace、slice、substr、substring`不改变原字符串
+
 
 
 	
